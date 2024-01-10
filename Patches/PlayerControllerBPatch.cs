@@ -43,8 +43,8 @@ namespace LethalCompanyMinimap.Patches
             }
 
             // Get the Minimap size from the settings
-            int height = MinimapMod.minimapGUI.minimapSize;
-            int width = (int)(height * aspectRatio);
+            int width = MinimapMod.minimapGUI.minimapSize;
+            int height = (int)(width / aspectRatio);
 
             // Check if we have a Minimap yet
             if (minimap == null || minimapObj == null)
@@ -127,8 +127,8 @@ namespace LethalCompanyMinimap.Patches
                 // Resize Minimap
                 if (MinimapMod.minimapGUI.minimapSize != minimap.rectTransform.sizeDelta.y)
                 {
-                    int height = MinimapMod.minimapGUI.minimapSize;
-                    int width = (int)(height * aspectRatio);
+                    int width = MinimapMod.minimapGUI.minimapSize;
+                    int height = (int)(width / aspectRatio);
                     minimap.rectTransform.sizeDelta = new Vector2(width, height);
                     tooltips.anchoredPosition = tooltipsOriginalPos - new Vector2(0, height);
                 }
