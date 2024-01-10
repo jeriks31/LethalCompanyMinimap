@@ -15,7 +15,7 @@ namespace LethalCompanyMinimap.Patches
     internal class PlayerControllerBPatch
     {
         private const int padding = -5;
-        private const float aspectRatio = (4f / 3f); // Aspect ratio of the ship monitor (4:3)
+        private const float aspectRatio = (13f / 9f); // Aspect ratio of the ship monitor (13:9)
         private static GameObject minimapObj;
         private static RawImage minimap;
         private static RectTransform tooltips;
