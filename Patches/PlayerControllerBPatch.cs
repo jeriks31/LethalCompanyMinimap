@@ -15,7 +15,7 @@ namespace LethalCompanyMinimap.Patches
     internal class PlayerControllerBPatch
     {
         private const int padding = -5;
-        private const float aspectRatio = (4f / 3f); // Aspect ratio of the ship monitor (4:3)
+        private const float aspectRatio = (13f / 9f); // Aspect ratio of the ship monitor (13:9)
         private static GameObject minimapObj;
         private static RawImage minimap;
         private static RectTransform tooltips;
@@ -43,8 +43,8 @@ namespace LethalCompanyMinimap.Patches
             }
 
             // Get the Minimap size from the settings
-            int height = MinimapMod.minimapGUI.minimapSize;
-            int width = (int)(height * aspectRatio);
+            int width = MinimapMod.minimapGUI.minimapSize;
+            int height = (int)(width / aspectRatio);
 
             // Check if we have a Minimap yet
             if (minimap == null || minimapObj == null)
@@ -127,8 +127,8 @@ namespace LethalCompanyMinimap.Patches
                 // Resize Minimap
                 if (MinimapMod.minimapGUI.minimapSize != minimap.rectTransform.sizeDelta.y)
                 {
-                    int height = MinimapMod.minimapGUI.minimapSize;
-                    int width = (int)(height * aspectRatio);
+                    int width = MinimapMod.minimapGUI.minimapSize;
+                    int height = (int)(width / aspectRatio);
                     minimap.rectTransform.sizeDelta = new Vector2(width, height);
                     tooltips.anchoredPosition = tooltipsOriginalPos - new Vector2(0, height);
                 }
